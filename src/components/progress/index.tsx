@@ -16,8 +16,10 @@ const Progress = (props: ProgressProps) => {
   const dataLen = data && data.length - 1;
   const watchAllFields = watch();
   const errorsLen = Object.keys(errors).length;
-  const hasValuesLen = Object.keys(watchAllFields).filter(
-    (key) => watchAllFields[key]
+  const hasValuesLen = Object.keys(watchAllFields).filter((key) =>
+    Array.isArray(watchAllFields[key])
+      ? watchAllFields[key].length > 0
+      : watchAllFields[key]
   ).length;
   const percent = ((hasValuesLen - errorsLen) / dataLen) * 100 || 0;
   return (

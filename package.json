@@ -27,6 +27,7 @@
     "eslint-plugin-cypress": "^2.10.3",
     "next": "9.4.4",
     "react": "16.13.1",
+    "react-csv": "^2.0.3",
     "react-dom": "16.13.1",
     "react-hook-form": "^6.0.8",
     "react-phone-input-2": "^2.13.7",
