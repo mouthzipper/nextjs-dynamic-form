@@ -23,8 +23,18 @@ interface InputProps {
 }
 
 const Input = (props: InputProps) => {
-  const { register, validations, ...rest } = props;
-  return <StyledInput {...rest} ref={register(validations)} />;
+  const { register, validations, type, ...rest } = props;
+  const isDate = type === 'date';
+  const now = new Date().toISOString().split('T')[0];
+  const maxAtr = isDate ? { max: now } : '';
+  return (
+    <StyledInput
+      ref={register(validations)}
+      type={type}
+      {...maxAtr}
+      {...rest}
+    />
+  );
 };
 
 export default Input;
